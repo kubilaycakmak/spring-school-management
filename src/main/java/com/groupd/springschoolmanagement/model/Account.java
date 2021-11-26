@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name =  "`user`", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name =  "`account`", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Account {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
@@ -22,9 +22,9 @@ public class Account {
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
-            name = "users_roles",
+            name = "account_roles",
             joinColumns = @JoinColumn(
-                    name = "user_id", referencedColumnName = "id"),
+                    name = "account_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
 
