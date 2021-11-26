@@ -1,10 +1,7 @@
 package com.groupd.springschoolmanagement.controller;
 
 import com.groupd.springschoolmanagement.model.Student;
-import com.groupd.springschoolmanagement.model.User;
-import com.groupd.springschoolmanagement.repository.UserRepository;
 import com.groupd.springschoolmanagement.service.StudentService;
-import com.groupd.springschoolmanagement.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;

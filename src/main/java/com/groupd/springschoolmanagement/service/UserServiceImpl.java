@@ -2,7 +2,7 @@ package com.groupd.springschoolmanagement.service;
 
 import com.groupd.springschoolmanagement.dto.UserRegistrationDto;
 import com.groupd.springschoolmanagement.model.Role;
-import com.groupd.springschoolmanagement.model.User;
+import com.groupd.springschoolmanagement.model.Account;
 import com.groupd.springschoolmanagement.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -30,8 +30,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User save(UserRegistrationDto registrationDto) {
-        User user = new User(registrationDto.getFirstName(),
+    public Account save(UserRegistrationDto registrationDto) {
+        Account user = new Account(registrationDto.getFirstName(),
                 registrationDto.getLastName(), registrationDto.getEmail(),
                 passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(new Role("ROLE_USER")));
 
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        User user = userRepository.findByEmail(username);
+        Account user = userRepository.findByEmail(username);
         if (user == null) {
             throw new UsernameNotFoundException("Invalid username or password.");
         }

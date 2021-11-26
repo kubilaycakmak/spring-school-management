@@ -5,7 +5,7 @@ import java.util.Collection;
 
 @Entity
 @Table(name =  "`user`", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
-public class User {
+public class Account {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
@@ -30,11 +30,11 @@ public class User {
 
     private Collection<Role> roles;
 
-    public User() {
+    public Account() {
 
     }
 
-    public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
+    public Account(String firstName, String lastName, String email, String password, Collection<Role> roles) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
